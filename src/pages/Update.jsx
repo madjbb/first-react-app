@@ -4,16 +4,16 @@ import Typography from '@mui/material/Typography';
 import CarForm from '../components/forms/CarForm';
 
 function Update() {
-  const {id} = useParams();
+  const { id } = useParams();
   // send car and handler to form
   return (
-    <> 
-            <Typography variant="h2" component="h1">
+    <>
+      <Typography variant="h2" component="h1">
         Update Car {id}
       </Typography>
       <CarForm />
     </>
-  )
+  );
 }
 
-export default Update
+export default Update;
