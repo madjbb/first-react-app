@@ -10,13 +10,15 @@ function ErrorFallback({ error, resetErrorBoundary }) {
   );
 }
 
-const ui = (
+const EB = ({children}) => (
   <ErrorBoundary
     FallbackComponent={ErrorFallback}
     onReset={() => {
       // reset the state of your app so the error doesn't happen again
     }}
   >
-    <ComponentThatMayError />
+    {children}
   </ErrorBoundary>
 );
+
+export default EB;

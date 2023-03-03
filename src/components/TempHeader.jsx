@@ -25,7 +25,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import MobileNavigation from './MobileNavigation';
 import DesktopNavigation from './DesktopNavigation';
-import ErrorBoundary from './debug/ErrorBoundary';
+// import ErrorBoundary from './debug/ErrorBoundary';
 
 const navItems = ['Home', 'About', 'Contact'];
 

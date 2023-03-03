@@ -3,33 +3,44 @@ import React, { createContext, useState, useCallback } from "react";
 export const UIContext = createContext({
   snackbar: {
     isOpen: false,
-    message: "",
+    message: "success",
     hideDuration: 6000,
     onClose: () => {},
+    showMessage: () => {},
   }
 })
 
 export const UIProvider = ({ children }) => {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState(false);
+  const [severity, setSeverity] = useState("");
+
   const onClose = () => {
     setOpen(false);
+    setMessage("");
+    setSeverity("");
+  }
+
+  const showMessage = ({type, string}) => {
+    console.log(type, string);
+    setOpen(true);
+    setMessage(string);
+    setSeverity(type);
   }
 
   return (
-    <CarsContext.Provider
+    <UIContext.Provider
       value={{
-        cars,
-        loading,
-        error,
-        fetchCars,
-        addCar,
-        updateCar,
-        deleteCar,
+        isOpen: open,
+        hideDuration: 6000,
+        onClose,
+        message,
+        showMessage,
+        severity,
       }}
     >
       {children}
-    </CarsContext.Provider>
+    </UIContext.Provider>
   );
 };
 
