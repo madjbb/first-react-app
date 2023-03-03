@@ -25,6 +25,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import MobileNavigation from './MobileNavigation';
 import DesktopNavigation from './DesktopNavigation';
+import ErrorBoundary from './debug/ErrorBoundary';
 
 const navItems = ['Home', 'About', 'Contact'];
 
@@ -34,9 +35,6 @@ function DrawerAppBar(props) {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -48,13 +46,5 @@ function DrawerAppBar(props) {
     </Box>
   );
 }
-
-DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default DrawerAppBar;
